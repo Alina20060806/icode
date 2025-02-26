@@ -1,0 +1,32 @@
+.message-wrapper {
+  margin: 12px 0;
+}
+
+.message-wrapper.user {
+  text-align: right;
+}
+
+.message-card {
+  display: inline-block !important;
+  max-width: 75%;
+  border-radius: 12px !important;
+}
+
+.message-card.user {
+  background: #1890ff;
+  color: white;
+}
+
+.message-card.bot {
+  background: #fff;
+  border: 1px solid #eee;
+}
+
+.message-text {
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.message-text p {
+  margin: 4px 0;
+}

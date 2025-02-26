@@ -1,0 +1,47 @@
+.main-layout {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.app-header {
+  background: #fff !important;
+  padding: 0 24px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.app-header h1 {
+  color: #1890ff;
+  margin: 12px 0 6px;
+}
+
+.welcome-text {
+  color: #666;
+  font-size: 14px;
+}
+
+.chat-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.message-container {
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+.input-box {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.send-btn {
+  height: auto;
+  align-self: flex-end;
+}
