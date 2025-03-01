@@ -9,7 +9,7 @@
 /* 大图部分 */
 .hero-section {
   min-height: 100vh;
-  background-image: url("D:\学习\icode\qi-huang-she-jian\istockphoto-182708747-2048x2048.jpg");
+  background-image: url('/images/photo.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
