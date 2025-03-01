@@ -1,3 +1,4 @@
+// src/mock/api.js
 import axios from 'axios'
 
 // 统一模拟接口
@@ -13,5 +14,15 @@ axios.interceptors.request.use(config => {
       }
     })
   }
+
+  // 中药材查询接口
+  if (config.url.includes('/herbs')) {
+    return Promise.resolve({
+      data: [
+        // 药材数据...
+      ]
+    })
+  }
+
   return config
 })

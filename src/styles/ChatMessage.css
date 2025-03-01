@@ -1,7 +1,9 @@
-/* src/components/ChatMessage.css */
+/* src/styles/ChatMessage.css - 修改后更适合宽屏 */
 .message-card {
   border-radius: 12px !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-width: 250px; /* 确保消息卡片有一个最小宽度 */
+  max-width: 85%;   /* 最大宽度控制 */
 }
 
 .message-card.bot {
@@ -17,8 +19,17 @@
 .message-text {
   white-space: pre-wrap;
   line-height: 1.6;
+  font-size: 1rem; /* 调整字体大小 */
+  padding: 0.1rem 0.2rem; /* 内边距微调 */
 }
 
 .message-text p {
-  margin: 4px 0;
+  margin: 6px 0;
+}
+
+/* 对于大屏幕可以更大的字体 */
+@media (min-width: 1400px) {
+  .message-text {
+    font-size: 1.05rem;
+  }
 }
