@@ -6,17 +6,15 @@ import {
   ExperimentOutlined,
   BookOutlined,
   ScheduleOutlined,
-  IdcardOutlined,
-  TeamOutlined,
   LineChartOutlined,
-  EnvironmentOutlined
+  RobotOutlined
 } from '@ant-design/icons';
 import '../styles/LandingPage.css';
 
 const { Title, Paragraph } = Typography;
 
 export default function LandingPage({ onStart, onSelectFunction }) {
-  // 功能菜单数据
+  // 功能菜单数据 - 已删除体质辨识、药材产地和名医荟萃，增加了人工智能助手
   const functions = [
     {
       id: 'herbs',
@@ -34,9 +32,9 @@ export default function LandingPage({ onStart, onSelectFunction }) {
     },
     {
       id: 'prescriptions',
-      title: '经方查询',
+      title: '经方饮食查询',
       icon: <BookOutlined />,
-      description: '古代经典处方的查询与解析',
+      description: '中医经典饮食方案查询',
       color: '#fa8c16'
     },
     {
@@ -47,20 +45,6 @@ export default function LandingPage({ onStart, onSelectFunction }) {
       color: '#722ed1'
     },
     {
-      id: 'constitution',
-      title: '体质辨识',
-      icon: <IdcardOutlined />,
-      description: '中医九种体质的辨别与调养',
-      color: '#eb2f96'
-    },
-    {
-      id: 'doctors',
-      title: '名医荟萃',
-      icon: <TeamOutlined />,
-      description: '历代著名中医及其学术成就',
-      color: '#13c2c2'
-    },
-    {
       id: 'meridians',
       title: '经络图谱',
       icon: <LineChartOutlined />,
@@ -68,17 +52,21 @@ export default function LandingPage({ onStart, onSelectFunction }) {
       color: '#faad14'
     },
     {
-      id: 'geomancy',
-      title: '药材产地',
-      icon: <EnvironmentOutlined />,
-      description: '各地道地药材分布查询',
-      color: '#1d39c4'
+      id: 'ai-assistant',
+      title: '人工智能助手',
+      icon: <RobotOutlined />,
+      description: '智能中医问诊与健康咨询',
+      color: '#eb2f96'
     }
   ];
 
+  // 将功能分为两行，每行三个
+  const topRowFunctions = functions.slice(0, 3); // 前三个功能
+  const bottomRowFunctions = functions.slice(3, 6); // 后三个功能
+
   return (
     <div className="landing-container">
-      {/* 大图部分 - 移除白色方块，改为半透明覆盖层 */}
+      {/* 大图部分 - 半透明覆盖层 */}
       <div className="hero-section">
         <div className="hero-overlay">
           <div className="hero-content">
@@ -99,16 +87,36 @@ export default function LandingPage({ onStart, onSelectFunction }) {
         </div>
       </div>
 
-      {/* 功能导航部分 */}
+      {/* 功能导航部分 - 3x2布局 */}
       <div className="features-section">
         <div className="features-header">
           <Title level={2}>功能导航</Title>
           <Paragraph>探索岐黄中医智能助手的多样化功能</Paragraph>
         </div>
 
-        <Row gutter={[16, 16]} className="features-grid">
-          {functions.map(func => (
-            <Col xs={12} sm={8} md={6} key={func.id}>
+        {/* 上面一行三个 */}
+        <Row gutter={[24, 24]} className="features-grid">
+          {topRowFunctions.map(func => (
+            <Col xs={24} sm={24} md={8} key={func.id}>
+              <Card
+                hoverable
+                className="feature-card"
+                onClick={() => onSelectFunction(func.id)}
+              >
+                <div className="feature-icon" style={{ backgroundColor: func.color }}>
+                  {func.icon}
+                </div>
+                <div className="feature-title">{func.title}</div>
+                <div className="feature-desc">{func.description}</div>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+
+        {/* 下面一行三个 */}
+        <Row gutter={[24, 24]} className="features-grid" style={{ marginTop: '16px' }}>
+          {bottomRowFunctions.map(func => (
+            <Col xs={24} sm={24} md={8} key={func.id}>
               <Card
                 hoverable
                 className="feature-card"

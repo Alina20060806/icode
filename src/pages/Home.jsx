@@ -9,10 +9,17 @@ import {
   MedicineBoxOutlined,
   HomeOutlined,
   MenuOutlined,
-  CloseOutlined
+  CloseOutlined,
+  LineChartOutlined,
+  ScheduleOutlined,
+  BookOutlined,
+  RobotOutlined
 } from '@ant-design/icons';
 import LandingPage from '../components/LandingPage'; // 导入着陆页组件
 import HerbGallery from '../components/HerbGallery'; // 导入中药材库组件
+import MeridianChart from '../components/MeridianChart'; // 导入经络图解组件
+import SeasonalHealth from '../components/SeasonalHealth'; // 导入养生日历组件
+import PrescriptionFood from '../components/PrescriptionFood'; // 导入经方饮食查询组件
 import SidePanel from '../components/SidePanel'; // 导入舌诊侧边栏组件
 import '../styles/ModernChat.css';
 
@@ -100,27 +107,29 @@ export default function Home() {
 
   // 处理功能选择
   const handleFunctionSelect = (functionId) => {
-    if (functionId === 'herbs') {
-      setCurrentView('herbs');
-    } else if (functionId === 'diagnostics') {
-      setCurrentView('chat');
-      setSideOpen(true); // 打开舌诊侧边栏
-    } else {
-      // 对于其他功能，默认跳转到聊天页面
-      setCurrentView('chat');
-      // 可以根据功能ID设置预填问题
-      const functionQuestions = {
-        'prescriptions': '请介绍常用的中医经方',
-        'calendar': '本月有哪些养生建议？',
-        'constitution': '如何判断自己是什么体质？',
-        'doctors': '请介绍几位著名的中医',
-        'meridians': '能简单介绍下人体经络吗？',
-        'geomancy': '哪些地区出产道地药材？'
-      };
-
-      if (functionQuestions[functionId]) {
-        setInputText(functionQuestions[functionId]);
-      }
+    switch(functionId) {
+      case 'herbs':
+        setCurrentView('herbs');
+        break;
+      case 'diagnostics':
+        setCurrentView('chat');
+        setSideOpen(true); // 打开舌诊侧边栏
+        break;
+      case 'prescriptions':
+        setCurrentView('prescriptions');
+        break;
+      case 'calendar':
+        setCurrentView('calendar');
+        break;
+      case 'meridians':
+        setCurrentView('meridians');
+        break;
+      case 'ai-assistant':
+        setCurrentView('chat');
+        break;
+      default:
+        setCurrentView('chat');
+        break;
     }
   };
 
@@ -134,6 +143,12 @@ export default function Home() {
     switch(currentView) {
       case 'herbs':
         return <HerbGallery />;
+      case 'meridians':
+        return <MeridianChart />;
+      case 'calendar':
+        return <SeasonalHealth />;
+      case 'prescriptions':
+        return <PrescriptionFood />;
       case 'chat':
       default:
         return (
@@ -274,6 +289,30 @@ export default function Home() {
                 onClick={() => setCurrentView('herbs')}
               />
             </Tooltip>
+            <Tooltip title="经络图谱">
+              <Button
+                type="text"
+                icon={<LineChartOutlined />}
+                className={`header-button ${currentView === 'meridians' ? 'active-button' : ''}`}
+                onClick={() => setCurrentView('meridians')}
+              />
+            </Tooltip>
+            <Tooltip title="经方饮食查询">
+              <Button
+                type="text"
+                icon={<BookOutlined />}
+                className={`header-button ${currentView === 'prescriptions' ? 'active-button' : ''}`}
+                onClick={() => setCurrentView('prescriptions')}
+              />
+            </Tooltip>
+            <Tooltip title="养生日历">
+              <Button
+                type="text"
+                icon={<ScheduleOutlined />}
+                className={`header-button ${currentView === 'calendar' ? 'active-button' : ''}`}
+                onClick={() => setCurrentView('calendar')}
+              />
+            </Tooltip>
             <Tooltip title="舌诊分析">
               <Button
                 type="text"
@@ -282,8 +321,13 @@ export default function Home() {
                 onClick={() => setSideOpen(true)}
               />
             </Tooltip>
-            <Tooltip title="问诊记录">
-              <Button type="text" icon={<HistoryOutlined />} className="header-button" />
+            <Tooltip title="AI助手">
+              <Button
+                type="text"
+                icon={<RobotOutlined />}
+                className={`header-button ${currentView === 'chat' ? 'active-button' : ''}`}
+                onClick={() => setCurrentView('chat')}
+              />
             </Tooltip>
           </div>
         </Header>

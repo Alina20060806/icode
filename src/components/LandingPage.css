@@ -122,7 +122,6 @@
   margin: 0 auto;
   width: 100%; /* 确保宽度占满 */
   display: flex;
-  flex-wrap: wrap;
   justify-content: center; /* 内容居中 */
 }
 
@@ -133,6 +132,7 @@
   text-align: center;
   padding: 1.5rem 1rem;
   background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .feature-card:hover {
@@ -141,28 +141,28 @@
 }
 
 .feature-icon {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto 15px;
   color: white;
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .feature-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: #333;
-  margin: 10px 0 8px;
+  margin: 15px 0 12px;
 }
 
 .feature-desc {
-  font-size: 14px;
+  font-size: 15px;
   color: #666;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* 底部说明 */
@@ -197,5 +197,15 @@
   .start-button {
     font-size: 1.1rem;
     padding: 10px 36px;
+  }
+
+  .feature-card {
+    margin-bottom: 16px;
+  }
+
+  .feature-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
   }
 }

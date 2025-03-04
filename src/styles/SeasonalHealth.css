@@ -1,0 +1,122 @@
+/* src/components/SeasonalHealth.css */
+.seasonal-health-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.seasonal-health-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.seasonal-health-header h2 {
+  color: #1890ff;
+  font-weight: 600;
+}
+
+.seasonal-health-content {
+  margin-top: 2rem;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.date-cell-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.solar-term-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px !important;
+  font-weight: bold;
+  color: #1890ff !important;
+}
+
+.health-info-container {
+  margin-top: 2rem;
+}
+
+.health-info-card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-section {
+  margin-bottom: 1.5rem;
+}
+
+.info-section h4 {
+  color: #1890ff;
+  margin-bottom: 0.5rem;
+}
+
+.food-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 1.5rem;
+}
+
+.food-list li {
+  background: #f5f5f5;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.do-dont-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.do-section, .dont-section {
+  flex: 1;
+}
+
+.do-section h5 {
+  color: #52c41a;
+}
+
+.dont-section h5 {
+  color: #f5222d;
+}
+
+.empty-info {
+  margin: 3rem 0;
+}
+
+.api-documentation {
+  margin-top: 4rem;
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.response-example {
+  background: #f0f2f5;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow: auto;
+  max-height: 300px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .seasonal-health-container {
+    padding: 1rem;
+  }
+
+  .do-dont-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
